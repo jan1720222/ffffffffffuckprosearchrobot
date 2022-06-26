@@ -41,14 +41,7 @@ async def start(client, message):
         await db.add_user(message.from_user.id, message.from_user.first_name)
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
-        buttons = [
-            [InlineKeyboardButton('🤖Movie Updates Channel', url='https://t.me/+5GqQY0tAqKRhYmVl')],[
-            InlineKeyboardButton('🤖TV/WEB Series Search Bot', url='https://t.me/Prosearchxbot')]
-        ]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await message.reply_photo(
-            photo=random.choice(PICS),
-            caption=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
+        await msg.reply("Send MOVIE Name and Year")
             reply_markup=reply_markup,
             parse_mode='html'
         )
