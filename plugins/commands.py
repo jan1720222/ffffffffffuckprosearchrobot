@@ -41,7 +41,7 @@ async def start(client, message):
         await db.add_user(message.from_user.id, message.from_user.first_name)
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
-        await msg.reply("Send MOVIE Name and Year")
+        await message.reply("Send MOVIE Name and Year")
         
         return
     if AUTH_CHANNEL and not await is_subscribed(client, message):
